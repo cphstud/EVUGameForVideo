@@ -1,5 +1,5 @@
 class GameConfig():
-    def __set__(self, instance, value):
+    def __init__(self):
         self.width=600
         self.height=800
         self.delta=self.width/25
@@ -8,4 +8,5 @@ class GameConfig():
         self.green=(0,128,0)
         self.blue=(0,191,255)
 
-
+    def get_width(self):
+        return self.width

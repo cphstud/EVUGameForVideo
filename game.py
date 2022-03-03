@@ -1,8 +1,8 @@
 import pygame
 from ship import Ship
-from alien import Alien
 from game_stats import GameStats
 from game_config import GameConfig
+from aliens import Aliens
 
 def run_game():
     # init game
@@ -18,10 +18,12 @@ def run_game():
     clock=pygame.time.Clock()
 
     # get the scoreboard
-    board=GameStats()
+    board=GameStats(g_conf,screen)
 
     # get the game-actors
     ship=Ship(g_conf,screen)
+    aliens=Aliens(g_conf,screen)
+
 
 
 

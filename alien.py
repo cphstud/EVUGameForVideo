@@ -1,7 +1,7 @@
 import pygame
 from random import randint
 class Alien():
-    def __set__(self,screen, settings, **kwargs):
+    def __init__(self,screen, settings, **kwargs):
         self.screen=screen
         self.conf=settings
         self.xpos=randint(self.conf.delta, self.conf.width-self.conf.delta)

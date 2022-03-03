@@ -1,17 +1,17 @@
 from random import randint
+from alien import Alien
 class Aliens():
 
-    def __set__(self, settings):
+    def __init__(self, screen,settings):
+        self.screen=screen
         self.list_of_aliens=self.init_targets()
         self.s=settings
 
     def init_targets(self):
+        #screen, settings, **kwargs
         aliens = []
         for tal in range(self.s.num_of_aliens):
-            xpos = randint(self.s.delta, self.s.width - self.s.delta)
-            ypos = 0
             speed = randint(1, 4)
-            alien_rect = alien_img.get_rect(center=(xpos, ypos))
-            alien = {"image": alien_img, "rect": alien_rect, "name": f"alien_{tal}", "counter": 0, "speed": speed}
+            alien=Alien(self.screen,self.s,{"name":f"alien_{tal}","speed":speed})
             aliens.append(alien)
         return aliens

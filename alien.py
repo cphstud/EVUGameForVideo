@@ -7,8 +7,8 @@ class Alien():
         self.xpos=randint(self.conf.delta, self.conf.width-self.conf.delta)
         self.ypos=0
         self.counter=0
-        self.speed=kwargs['speed']
-        self.name=kwargs['name']
+        self.speed=kwargs.get('speed')
+        self.name=kwargs.get('name')
         self.img=pygame.image.load("ressources/alien.bmp")
         self.rect=self.img.get_rect()
 

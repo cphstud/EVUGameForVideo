@@ -1,17 +1,18 @@
 from random import randint
 from alien import Alien
+
 class Aliens():
 
-    def __init__(self, screen,settings):
+    def __init__(self, settings, screen):
         self.screen=screen
+        self.conf=settings
         self.list_of_aliens=self.init_targets()
-        self.s=settings
 
     def init_targets(self):
         #screen, settings, **kwargs
         aliens = []
-        for tal in range(self.s.num_of_aliens):
+        for tal in range(self.conf.num_of_aliens):
             speed = randint(1, 4)
-            alien=Alien(self.screen,self.s,{"name":f"alien_{tal}","speed":speed})
+            alien=Alien(self.screen,self.conf,name=f"alien_{tal}",mspeed=speed)
             aliens.append(alien)
         return aliens

@@ -16,7 +16,9 @@ def run_game():
 
     # set screen
     screen=pygame.display.set_mode((g_conf.width,g_conf.height))
+    clock=pygame.time.Clock()
     g_util=GameUtil(g_conf,screen)
+    g_stats=GameStats(g_conf,screen)
 
     # set the clock
     clock=pygame.time.Clock()
@@ -30,6 +32,7 @@ def run_game():
 
     # variables
     frame_counter=0
+    alien_counter=0
 
     # run the main loop
 
@@ -43,7 +46,23 @@ def run_game():
             g_util.blit_btn()
         else:
             g_util.blit_bg()
+            ship.move_ship(pygame.mouse.get_pos())
+            ship.blitme()
+            if (frame_counter % g_conf.frequency == 0):
+                alien_counter+=1
+                if alien_counter==len(aliens.list_of_aliens):
+                    alien_counter=0
+                    aliens=Aliens(g_conf,screen)
 
+            for alien in aliens.list_of_aliens[:alien_counter]:
+                alien.move_down()
+                if ship.collide(alien):
+                    g_stats.score+=1
+                    alien.kill()
+                else:
+                    alien.blitme()
+        g_stats.show_score()
+        clock.tick(g_conf.fr)
         pygame.display.update()
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@ class GameUtil():
         self.conf=settings
         self.startbtn=pygame.image.load("ressources/start.jpg")
         self.bg=pygame.image.load("ressources/bluebg.png")
+        self.bg=pygame.transform.scale(self.bg,(self.conf.width,self.conf.height))
 
     def blit_btn(self):
         self.screen.blit(self.startbtn,(self.conf.width/2,self.conf.height/2))

@@ -8,7 +8,7 @@ class GameStats():
         self.font=pygame.font.SysFont("arial",32)
 
     def show_score(self):
-        text=self.font.render(f"score: {self.score}")
+        text=self.font.render(f"score: {self.score}",self.conf.black,self.conf.white)
         self.screen.blit(text,text.get_rect())
 
 

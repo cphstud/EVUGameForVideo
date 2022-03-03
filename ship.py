@@ -10,6 +10,12 @@ class Ship():
     def move_ship(self,movement):
         self.rect.center=movement
 
+    def collide(self,other):
+        retval=0
+        if self.rect.colliderect(other):
+            retval+=1
+        return retval
+
     def blitme(self):
         self.screen.blit(self.img,self.rect)
 

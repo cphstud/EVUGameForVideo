@@ -8,7 +8,9 @@ class GameConfig():
         self.green=(0,128,0)
         self.blue=(0,191,255)
         self.start_game=False
-        self.num_of_aliens=20
+        self.num_of_aliens=200
+        self.frequency=10
+        self.fr=70
 
 
     def get_width(self):

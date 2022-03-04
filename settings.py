@@ -1,15 +1,16 @@
-#booleans - knapper
-start_game=False
+class Settings():
+    def __init__(self):
+        self.start_game=False
+        #dimensioner
+        self.width=600
+        self.height=800
+        self.delta=self.width/20
+        self.font_size=32
 
-#dimensioner
-width=600
-height=800
-delta=width/20
-font_size=32
+        self.frequency=10
+        self.fr=60
+        self.num_of_aliens=10
 
-fr=60
-num_of_aliens=10
-
-#farver
-white=(255,255,255)
-black=(0,0,0)
+        #farver
+        self.white=(255,255,255)
+        self.black=(0,0,0)
